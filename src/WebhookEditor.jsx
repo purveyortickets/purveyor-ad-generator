@@ -20,7 +20,7 @@ const W = {
 }
 
 const EMPTY_EMBED = () => ({
-  title:'', description:'', color:'#270052', url:'https://x.com/purveyor_ph',
+  title:'', description:'📅 \n📍 \n\n🎫 Ticketing Dates:\n\n**RATES  PER TICKET:**\n```\n\n```\n\n**Notes:** \n- *For CC payments, a Desktop or PC is needed.*', color:'#270052', url:'https://x.com/purveyor_ph',
   author:{name:'',icon_url:'',url:''},
   thumbnail:{url:''},
   images:[''],
@@ -113,7 +113,7 @@ export default function WebhookEditor(){
   const [webhookUrl,setWebhookUrl]=useState('')
   const [username,setUsername]=useState('PURVEYOR EVENTS INFO')
   const [avatarUrl,setAvatarUrl]=useState('https://i.imgur.com/xBPYOvX.jpeg')
-  const [content,setContent]=useState('')
+  const [content,setContent]=useState('|| <@&1239917793189695538> <@&1286570810127159307> ||')
   const [embeds,setEmbeds]=useState([EMPTY_EMBED()])
   const [sending,setSending]=useState(false)
   const [status,setStatus]=useState(null)
