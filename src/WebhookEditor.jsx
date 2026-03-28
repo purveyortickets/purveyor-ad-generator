@@ -41,13 +41,13 @@ function Section({title,children,defaultOpen=true}){
   )
 }
 
-function Input({label,value,onChange,placeholder,multiline,type='text'}){
+function Input({label,value,onChange,placeholder,multiline,type='text',rows=4}){
   const s={width:'100%',padding:multiline?'10px 12px':'9px 12px',borderRadius:8,border:`1px solid ${W.border}`,background:W.input,color:W.text,fontSize:13,outline:'none',boxSizing:'border-box',fontFamily:"'Outfit',sans-serif",resize:multiline?'vertical':'none',transition:'border-color .2s'}
   return(
     <div style={{marginBottom:10}}>
       {label&&<label style={{color:W.textDim,fontSize:10,fontWeight:700,marginBottom:4,display:'block',textTransform:'uppercase',letterSpacing:0.8}}>{label}</label>}
       {multiline
-        ?<textarea value={value} onChange={e=>onChange(e.target.value)} placeholder={placeholder} rows={4} style={s} onFocus={e=>{e.target.style.borderColor=W.accent}} onBlur={e=>{e.target.style.borderColor=W.border}}/>
+        ?<textarea value={value} onChange={e=>onChange(e.target.value)} placeholder={placeholder} rows={rows} style={s} onFocus={e=>{e.target.style.borderColor=W.accent}} onBlur={e=>{e.target.style.borderColor=W.border}}/>
         :<input type={type} value={value} onChange={e=>onChange(e.target.value)} placeholder={placeholder} style={s} onFocus={e=>{e.target.style.borderColor=W.accent}} onBlur={e=>{e.target.style.borderColor=W.border}}/>
       }
     </div>
@@ -260,7 +260,7 @@ export default function WebhookEditor(){
                 </div>
               </div>
               <Input label="URL (makes title clickable)" value={embed.url} onChange={v=>updateEmbed(eIdx,'url',v)} placeholder="https://..."/>
-              <Input label="Description" multiline value={embed.description} onChange={v=>updateEmbed(eIdx,'description',v)} placeholder="Embed description..."/>
+              <Input label="Description" multiline rows={16} value={embed.description} onChange={v=>updateEmbed(eIdx,'description',v)} placeholder="Embed description..."/>
 
               <div style={{marginTop:6,padding:'10px 12px',background:'rgba(0,0,0,0.12)',borderRadius:10,border:`1px solid ${W.borderLight}`}}>
                 <p style={{color:W.textDim,fontSize:10,fontWeight:700,marginBottom:6,textTransform:'uppercase'}}>👤 Author</p>
