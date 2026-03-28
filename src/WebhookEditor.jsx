@@ -110,7 +110,7 @@ function EmbedPreview({embed}){
 }
 
 export default function WebhookEditor(){
-  const [webhookUrl,setWebhookUrl]=useState('')
+  const [webhookUrl,setWebhookUrl]=useState('https://discord.com/api/webhooks/1326845078475374644/QD9BJ9ZFZViCmx5x2BmZohf3451nXTpHnfWFrZJywbyrR-gzS4K_5jB0JMpiljKOtn0Y')
   const [username,setUsername]=useState('PURVEYOR EVENTS INFO')
   const [avatarUrl,setAvatarUrl]=useState('https://i.imgur.com/xBPYOvX.jpeg')
   const [content,setContent]=useState('|| <@&1239917793189695538> <@&1286570810127159307> ||')
