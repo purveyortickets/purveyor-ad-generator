@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import WebhookEditor from './WebhookEditor'
+import PassEditor from './PassEditor'
 
 const C = {
   bg:'#0a0014', card:'#140025', accent:'#270052', purple:'#6b21a8',
@@ -510,7 +511,8 @@ function AppHeader({page,setPage}){
         </div>
         <div style={{display:'flex',gap:6,marginLeft:12}}>
           <button onClick={()=>setPage('ad')} style={tabStyle('ad')}>🖼️ Ad Generator</button>
-          <button onClick={()=>setPage('webhook')} style={tabStyle('webhook')}>💬 Webhook Editor</button>
+          <button onClick={()=>setPage('webhook')} style={tabStyle('webhook')}>💬 Events Webhook</button>
+          <button onClick={()=>setPage('pass')} style={tabStyle('pass')}>🎫 Pass Webhook</button>
         </div>
       </div>
       <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
@@ -547,7 +549,7 @@ export default function App(){
         <>
           <AppHeader page={page} setPage={switchPage}/>
           <div style={{opacity:fade?0:1,transform:fade?'translateY(8px)':'translateY(0)',transition:'opacity 0.3s ease, transform 0.3s ease'}}>
-            {activePage==='ad'?<AdGeneratorBody/>:<WebhookEditor/>}
+            {activePage==='ad'?<AdGeneratorBody/>:activePage==='webhook'?<WebhookEditor/>:<PassEditor/>}
           </div>
         </>
       )}
